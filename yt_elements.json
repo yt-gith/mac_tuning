@@ -1,0 +1,135 @@
+{
+    "title": "yt - my Karabiner Elements",
+    "rules": [
+        {
+            "description": "Change spacebar to left_shift. (Post spacebar if pressed alone)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "spacebar",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_shift"
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "spacebar"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "RShift + Del deletes char before cursor",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "modifiers": {
+                            "mandatory": [
+                                "right_shift"
+                            ]
+                        },
+                        "key_code": "delete_or_backspace"
+                    },
+                    "to": [
+                        {
+                            "key_code": "delete_forward",
+                            "lazy": false
+                        }
+                    ]
+                }
+            ]
+        },
+      {
+            "description": "CapsLock - switch input source, held down to turn on/off Caps Mode",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "caps_lock",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to_if_alone": [
+                        {
+                            "key_code": "spacebar",
+                            "modifiers": [
+                                "left_command"
+                            ]
+                        }
+                    ],
+                    "to_if_held_down": [
+                        {
+                            "key_code": "caps_lock"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Change input source: LShift - En, RShift - Ru",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "left_shift",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_shift",
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "select_input_source": {
+                                "language": "^en$"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "right_shift",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_shift",
+                            "lazy": true
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "select_input_source": {
+                                "language": "^ru$"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
